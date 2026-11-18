@@ -1,0 +1,15 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Temp / test artifacts
+test-*.js
+*-screenshot.png
+audit-test.js
+
+# Logs
+*.log
