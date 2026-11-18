@@ -1,0 +1,374 @@
+/* ==========================================================================
+   MWEB — Digital Engineering & Professional Websites
+   Aesthetic derived directly from reference: pitch black (#000000) & 
+   authentic phosphor terminal green (#61C37D)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Core Brand Tokens directly sampled from mweb.png */
+  --mweb-bg: #000000;
+  --mweb-surface: #070A08;
+  --mweb-surface-elevated: #0E1410;
+  --mweb-surface-hover: #141E18;
+
+  --mweb-green: #61C37D;
+  --mweb-green-hover: #75D491;
+  --mweb-green-dim: #2A5437;
+  --mweb-green-faint: rgba(97, 195, 125, 0.08);
+  --mweb-green-glow: rgba(97, 195, 125, 0.35);
+
+  --mweb-text: #F0F4F1;
+  --mweb-text-muted: #8EAA95;
+  --mweb-text-dim: #546B5B;
+
+  --mweb-border: #18261D;
+  --mweb-border-light: #253C2D;
+  --mweb-border-highlight: #61C37D;
+
+  --font-pixel: 'Silkscreen', monospace;
+  --font-tech: 'Chakra Petch', sans-serif;
+  --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --shadow-terminal: 0 0 30px rgba(97, 195, 125, 0.12);
+  --shadow-terminal-hover: 0 0 45px rgba(97, 195, 125, 0.25);
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-heading);
+  background-color: var(--mweb-bg);
+  color: var(--mweb-text);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--mweb-bg);
+  color: var(--mweb-text);
+  line-height: 1.6;
+  position: relative;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* Custom Scanlines & Grid Texture */
+.crt-grid-bg {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(97, 195, 125, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(97, 195, 125, 0.04) 1px, transparent 1px);
+}
+
+/* Typography Classes */
+.font-pixel {
+  font-family: var(--font-pixel);
+  letter-spacing: -0.04em;
+}
+
+.font-tech {
+  font-family: var(--font-tech);
+  letter-spacing: 0.02em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Interactive Phosphor Glow */
+.glow-text-green {
+  text-shadow: 0 0 12px var(--mweb-green-glow);
+}
+
+.glow-border {
+  border-color: var(--mweb-green);
+  box-shadow: 0 0 20px var(--mweb-green-glow);
+}
+
+/* Primary Brutalist / Terminal Button */
+.btn-mweb-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--mweb-green);
+  color: #000000;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 13px 26px;
+  border-radius: 4px;
+  border: 1px solid var(--mweb-green);
+  cursor: pointer;
+  transition: all 180ms ease;
+  text-decoration: none;
+  min-height: 48px;
+  box-shadow: 0 0 16px rgba(97, 195, 125, 0.25);
+}
+
+.btn-mweb-primary:hover {
+  background-color: var(--mweb-green-hover);
+  border-color: var(--mweb-green-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(97, 195, 125, 0.45);
+}
+
+.btn-mweb-primary:focus-visible {
+  outline: 3px solid var(--mweb-green);
+  outline-offset: 3px;
+}
+
+/* Secondary Terminal Button */
+.btn-mweb-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--mweb-surface);
+  color: var(--mweb-text);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  padding: 13px 24px;
+  border-radius: 4px;
+  border: 1px solid var(--mweb-border);
+  cursor: pointer;
+  transition: all 180ms ease;
+  text-decoration: none;
+  min-height: 48px;
+}
+
+.btn-mweb-secondary:hover {
+  border-color: var(--mweb-green);
+  color: var(--mweb-green);
+  background-color: var(--mweb-surface-hover);
+  transform: translateY(-2px);
+}
+
+.btn-mweb-secondary:focus-visible {
+  outline: 2px solid var(--mweb-green);
+  outline-offset: 2px;
+}
+
+/* Terminal & Ledger Card Surface */
+.terminal-card {
+  background-color: var(--mweb-surface);
+  border: 1px solid var(--mweb-border);
+  border-radius: 8px;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.terminal-card:hover {
+  border-color: var(--mweb-border-light);
+  box-shadow: var(--shadow-terminal);
+}
+
+/* Terminal Glass Navigation Bar */
+.mweb-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--mweb-border);
+  transition: all 200ms ease;
+}
+
+/* Pixel Status Dot */
+.pixel-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--mweb-green);
+  box-shadow: 0 0 8px var(--mweb-green);
+  animation: blink 1.6s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* Terminal Input Fields */
+.mweb-input {
+  width: 100%;
+  background-color: var(--mweb-surface-elevated);
+  border: 1px solid var(--mweb-border);
+  color: var(--mweb-text);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  padding: 12px 16px;
+  border-radius: 4px;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.mweb-input:focus {
+  outline: none;
+  border-color: var(--mweb-green);
+  box-shadow: 0 0 0 2px var(--mweb-green-faint), 0 0 12px rgba(97, 195, 125, 0.2);
+}
+
+.mweb-input::placeholder {
+  color: var(--mweb-text-dim);
+}
+
+/* Scope Estimator Selector */
+.estimator-chip {
+  padding: 12px 16px;
+  border: 1px solid var(--mweb-border);
+  background-color: var(--mweb-surface);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 180ms ease;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--mweb-text-muted);
+}
+
+.estimator-chip:hover {
+  border-color: var(--mweb-green);
+  color: var(--mweb-text);
+}
+
+.estimator-chip.active {
+  border-color: var(--mweb-green);
+  background-color: var(--mweb-surface-hover);
+  color: var(--mweb-green);
+  box-shadow: 0 0 15px rgba(97, 195, 125, 0.15);
+}
+
+/* Accordion Item */
+.mweb-accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--mweb-text);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  transition: color 180ms ease;
+}
+
+.mweb-accordion-header:hover {
+  color: var(--mweb-green);
+}
+
+.mweb-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 250ms cubic-bezier(0.4, 0, 0.2, 1), padding 250ms ease;
+  padding: 0 24px;
+  color: var(--mweb-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.mweb-accordion-item.active .mweb-accordion-body {
+  max-height: 300px;
+  padding: 0 24px 20px 24px;
+}
+
+.mweb-accordion-item.active .mweb-accordion-icon {
+  transform: rotate(45deg);
+  color: var(--mweb-green);
+}
+
+.mweb-accordion-icon {
+  transition: transform 200ms ease, color 200ms ease;
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  color: var(--mweb-text-muted);
+}
+
+
+/* Toast Console Notification */
+.mweb-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--mweb-surface-elevated);
+  border: 1px solid var(--mweb-green);
+  color: var(--mweb-text);
+  padding: 16px 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 25px rgba(97, 195, 125, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 300;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 250ms ease, opacity 250ms ease;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+}
+
+.mweb-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .pixel-indicator {
+    animation: none !important;
+  }
+}
+
+/* RTL / Arabic Language Support */
+[dir="rtl"] {
+  font-family: 'IBM Plex Sans Arabic', 'Cairo', -apple-system, sans-serif;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .font-heading {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .rtl-arrow {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .mweb-toast {
+  right: auto;
+  left: 24px;
+}
